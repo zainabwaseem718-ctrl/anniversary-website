@@ -1,0 +1,645 @@
+/* GENERAL SETTINGS */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #100d0e;
+  --panel: #191315;
+  --panel2: #21181b;
+  --gold: #b99a68;
+  --gold2: #d4bd91;
+  --cream: #eee7dc;
+  --muted: #a69b94;
+  --line: rgba(185, 154, 104, 0.25);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      #26181d 0%,
+      #100d0e 54%,
+      #0c0a0b 100%
+    );
+}
+
+
+/* BACKGROUND */
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+
+  background-image:
+    radial-gradient(#d4bd91 1px, transparent 1px);
+
+  background-size: 52px 52px;
+
+  mask-image:
+    linear-gradient(to bottom, black, transparent 85%);
+}
+
+
+/* HEADER */
+
+.topbar {
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 clamp(20px, 6vw, 84px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  position: relative;
+  z-index: 2;
+}
+
+.wordmark,
+.final-mark {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.16em;
+  color: var(--gold2);
+  font-size: 19px;
+  text-decoration: none;
+}
+
+.wordmark span,
+.final-mark span {
+  color: #795c46;
+}
+
+.top-note,
+.eyebrow,
+.hero-foot,
+.small-label,
+.end-line {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+
+/* MUSIC BUTTON */
+
+.music-toggle {
+  border: 1px solid var(--line);
+  border-radius: 30px;
+
+  background: transparent;
+  color: var(--gold2);
+
+  padding: 9px 14px;
+
+  font: inherit;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+
+/* MAIN AREA */
+
+main {
+  min-height: calc(100vh - 132px);
+
+  display: grid;
+  place-items: center;
+
+  padding: 42px 20px 28px;
+}
+
+
+/* PAGE NAVIGATION */
+
+.page {
+  display: none;
+  width: min(860px, 100%);
+
+  animation: fade 0.55s ease both;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* HERO PAGE */
+
+.hero {
+  text-align: center;
+  padding: 6vh 0 3vh;
+}
+
+.eyebrow {
+  text-align: center;
+  margin-bottom: 23px;
+  color: var(--gold);
+}
+
+.hero-rule {
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+
+  margin: 0 auto 25px;
+}
+
+
+/* URDU FONT */
+
+.urdu {
+  font-family: "Noto Nastaliq Urdu", serif;
+  line-height: 2.2;
+  direction: rtl;
+}
+
+.hero-urdu {
+  font-size: clamp(25px, 4vw, 36px);
+  color: var(--gold2);
+  margin: 0 0 12px;
+}
+
+
+/* HEADINGS */
+
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.25;
+
+  margin: 0 auto 22px;
+}
+
+h1 {
+  font-size: clamp(38px, 6vw, 64px);
+  max-width: 760px;
+}
+
+h2 {
+  font-size: clamp(30px, 4.5vw, 48px);
+  max-width: 780px;
+}
+
+h1 em,
+h2 em {
+  font-weight: 400;
+  color: var(--gold2);
+}
+
+
+/* HERO TEXT */
+
+.hero-copy {
+  text-align: center;
+  color: #c3b8af;
+
+  line-height: 1.9;
+  font-size: 14px;
+
+  margin: 0 auto 30px;
+}
+
+
+/* BEGIN BUTTON */
+
+.primary-btn {
+  background: var(--gold);
+  color: #171112;
+
+  border: 0;
+
+  padding: 14px 21px;
+
+  font: 600 11px "DM Sans", sans-serif;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+  border-radius: 2px;
+
+  transition: 0.2s;
+}
+
+.primary-btn:hover {
+  background: var(--gold2);
+  transform: translateY(-2px);
+}
+
+.primary-btn span {
+  padding-left: 18px;
+}
+
+
+/* HERO FOOTER */
+
+.hero-foot {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 90px;
+  color: #756a65;
+}
+
+
+/* CONTENT CARDS */
+
+.letter-card,
+.quote-panel,
+.poem-paper {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(36, 26, 29, 0.95),
+      rgba(22, 17, 19, 0.95)
+    );
+
+  border: 1px solid var(--line);
+
+  padding: clamp(22px, 4vw, 42px);
+
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.16);
+}
+
+.letter-card p,
+.prose p {
+  font-size: 14px;
+  line-height: 2.05;
+  color: #d6ccc3;
+
+  margin: 0 0 18px;
+}
+
+.letter-card p:last-child,
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.letter-card .urdu {
+  font-size: clamp(17px, 2vw, 20px);
+  color: #e9dfd3;
+  line-height: 2.35;
+}
+
+
+/* SMALL QUOTE */
+
+.quiet-line {
+  text-align: center;
+  color: var(--gold2);
+
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+
+  font-size: 17px;
+  line-height: 1.7;
+
+  margin: 26px auto 0;
+  max-width: 650px;
+}
+
+
+/* TWO COLUMN SECTION */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+
+  gap: 22px;
+  align-items: stretch;
+}
+
+.quote-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.small-label {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.large-urdu {
+  font-size: clamp(20px, 2.7vw, 27px);
+  color: #f0e7dc;
+  line-height: 2.35;
+  margin: 0;
+}
+
+.prose {
+  padding: 12px 8px;
+}
+
+.prose .urdu {
+  font-size: 17px;
+  line-height: 2.35;
+}
+
+
+/* GOLD NOTE */
+
+.gold-note {
+  text-align: center;
+  color: var(--gold2);
+
+  border-top: 1px solid var(--line);
+
+  padding-top: 18px;
+  margin: 28px auto 0;
+
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 17px;
+}
+
+
+/* WIDE QUOTE */
+
+.quote-panel.wide {
+  text-align: center;
+  max-width: 740px;
+
+  margin: 0 auto 20px;
+}
+
+.centered-prose {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+
+/* POETRY PAGE */
+
+.poetry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.poetry-grid blockquote {
+  margin: 0;
+
+  background: var(--panel);
+  border: 1px solid var(--line);
+
+  padding: 23px 20px;
+
+  text-align: center;
+  font-size: 17px;
+  line-height: 2.4;
+
+  color: #e7dccc;
+}
+
+
+/* FULL POEM */
+
+.poem-full h2 {
+  color: var(--gold2);
+
+  font-family: "Noto Nastaliq Urdu", serif;
+  font-size: clamp(30px, 4vw, 42px);
+
+  margin-bottom: 25px;
+}
+
+.poem-paper {
+  max-width: 690px;
+  margin: auto;
+
+  text-align: center;
+
+  padding: 25px clamp(16px, 4vw, 42px);
+}
+
+.poem-paper p {
+  font-size: 17px;
+  line-height: 2.5;
+
+  margin: 0 0 13px;
+
+  color: #eee4d8;
+}
+
+.poem-paper p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* FINAL PAGE */
+
+.final-page {
+  text-align: center;
+  max-width: 700px;
+}
+
+.final-mark {
+  font-size: 30px;
+  margin: 0 auto 25px;
+}
+
+.final-urdu {
+  font-size: clamp(19px, 2.5vw, 25px);
+  color: var(--gold2);
+  line-height: 2.5;
+
+  margin: 20px auto;
+}
+
+.final-copy {
+  font-size: 14px;
+  line-height: 2;
+
+  color: #c9beb5;
+
+  max-width: 590px;
+  margin: 20px auto;
+}
+
+.signature {
+  font-size: 20px;
+  color: var(--gold2);
+  margin: 25px auto;
+}
+
+.end-line {
+  margin-top: 45px;
+}
+
+
+/* BOTTOM NAVIGATION */
+
+.controls {
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 clamp(20px, 6vw, 84px);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  position: relative;
+  z-index: 2;
+}
+
+.controls button {
+  background: none;
+  border: 0;
+
+  color: var(--gold2);
+
+  font: 500 11px "DM Sans", sans-serif;
+
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.controls button:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+
+/* PROGRESS BAR */
+
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  width: min(250px, 45vw);
+}
+
+.progress-track {
+  height: 2px;
+  background: #403338;
+  flex: 1;
+}
+
+.progress-track div {
+  height: 100%;
+  width: 10%;
+
+  background: var(--gold);
+
+  transition: width 0.35s;
+}
+
+.progress-wrap span {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+
+/* MUSIC HINT */
+
+.music-hint {
+  position: fixed;
+  bottom: 70px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 10px;
+  color: #9a8d83;
+
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+
+  text-align: center;
+  width: 90%;
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 650px) {
+
+  .top-note {
+    display: none;
+  }
+
+  .topbar {
+    height: 62px;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .poetry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poetry-grid blockquote {
+    padding: 18px 14px;
+  }
+
+  .hero-foot {
+    margin-top: 60px;
+  }
+
+  .letter-card {
+    padding: 22px 18px;
+  }
+
+  .controls {
+    height: 58px;
+  }
+
+  .controls button span {
+    display: none;
+  }
+
+  main {
+    padding-top: 30px;
+  }
+
+  .page {
+    padding-bottom: 18px;
+  }
+
+  .music-hint {
+    bottom: 64px;
+  }
+
+}
